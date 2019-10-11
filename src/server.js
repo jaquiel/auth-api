@@ -1,11 +1,11 @@
 const express = require('express');
 const routes = require('./routes');
-
 const app = express();
+const port = 13579
 
 
 app.use(routes);
 
-app.listen(147, (req, res) => { 
-    console.log("Starting on port: 147");
+app.listen(port, (req, res) => { 
+    console.log(`Running...prta {port}`);
 });
