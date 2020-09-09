@@ -1,5 +1,26 @@
 {
+  "name": "authenticate-service",
+  "description": "Service that provides an users authentication application.",
+  "version": "0.0.1",
+  "main": "app.js",  
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "",
+    "bugs": "",
+  },
+  "author": {
+    "name": "Jaquiel Paim",
+    "email": "jaquiel.paim@gmail.com",
+    "url": "https://jaquiel.github.io/"
+  },
   "dependencies": {
-    "express": "^4.17.1"
+    "bcrypt": "^5.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.26"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }

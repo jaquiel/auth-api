@@ -1,8 +1,20 @@
+/**
+ * App initialization
+ */
 const express = require('express')
-const index = require('./routes/index')
-const fruits = require('./routes/fruits')
+const indexRoute = require('./routes/index')
+const userRoute = require('./routes/user')
+const sessionRoute = require('./routes/session')
+const authRoute = require('./routes/auth')
 
 const app = express()
+
+/**
+ * Database Connection
+ */
+const InitiateMongoServer = require('./config/db')
+
+InitiateMongoServer();
 
 /**
  * app.use
@@ -15,9 +27,17 @@ app.set('json spaces', 4)
 /**
  * Routes
  */
-//app.use('/', require('./routes/index'))
-//app.use('/fruits', require('./routes/fruits'))
-app.use('/', index)
-app.use('/fruits', fruits)
+app.use('/', indexRoute)
+
+/**
+ * Router Middleware
+ * Router - /users/*
+ * Method - *
+ */
+app.use('/users', userRoute)
+
+app.use('/sessions', sessionRoute)
+
+app.use('/auth', authRoute)
 
 module.exports = app

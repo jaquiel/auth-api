@@ -1,5 +1,5 @@
 /**
- * App initialization
+ * Server initialization
  */
 const app = require('./app')
 
