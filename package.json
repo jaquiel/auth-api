@@ -6,8 +6,8 @@
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "",
-    "bugs": "",
+    "url": "https://github.com/jaquiel/auth-service",
+    "bugs": "https://github.com/jaquiel/auth-service/issues",
   },
   "author": {
     "name": "Jaquiel Paim",
