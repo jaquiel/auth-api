@@ -1,5 +1,6 @@
 exports.config = {
-    "ConnectionString":"mongodb+srv://user:user@api-4zu1c.mongodb.net/backend?retryWrites=true&w=majority",
+    "ConnectionStringCloud":"mongodb+srv://user:user@api-4zu1c.mongodb.net/backend?retryWrites=true&w=majority",
+    "ConnectionString":"mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false",
 }
 
 exports.Salt = {

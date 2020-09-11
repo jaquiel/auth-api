@@ -6,8 +6,16 @@ const indexRoute = require('./routes/index')
 const userRoute = require('./routes/user')
 const sessionRoute = require('./routes/session')
 const authRoute = require('./routes/auth')
+const cors = require('cors')
 
 const app = express()
+
+app.use(cors({
+    origins: ["*"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"]
+}))
+
 
 /**
  * Database Connection
