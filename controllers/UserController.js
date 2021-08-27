@@ -1,5 +1,4 @@
 const User = require('../models/User')
-const authMiddleware = require('../middlewares/auth')
 
 exports.get = (req, res, next) => {
 
@@ -17,7 +16,7 @@ exports.get = (req, res, next) => {
                 error : error
             })
         })
-
+        
 }
 
 exports.getActiveUsers = (req, res, next) => {
@@ -65,13 +64,15 @@ exports.getByUserId = (req, res, next) => {
 
 exports.post = (req, res, next) => {
         
+    console.log(req);
     const user = new User()
     const { firstname, lastname, email, password } = req.body
 
     user.firstname = firstname
     user.lastname = lastname
     user.email = email
-    user.password = authMiddleware.encryptPassword(password)
+    user.password = password
+    //user.password = authMiddleware.encryptPassword(password)
 
     user
         .save()

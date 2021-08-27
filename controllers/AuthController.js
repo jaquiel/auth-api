@@ -1,6 +1,6 @@
 const User = require('../models/User')
 const { isPasswordsMatched, generateToken } = require('../middlewares/auth')
-const { CreateSession } = require('../middlewares/session')
+//const { CreateSession } = require('../middlewares/session')
 
 exports.get = (req, res, next) => {
     res.send("GET 200 OK Auth")
@@ -17,7 +17,7 @@ exports.get = (req, res, next) => {
 exports.signin = (req, res, next) => {
     
     const { email, password } = req.body
-    
+
     User
         .findOne({ email : email })
         .then( data => {
@@ -26,14 +26,13 @@ exports.signin = (req, res, next) => {
                if (isPasswordsMatched(password, data.password)){
 
                     const token = generateToken(data)
-
                     res.status(200).send({
                         message: "User Authenticated",
                         auth: true,
                         token: token
                     }) 
 
-                   CreateSession(email)
+                   //CreateSession(email)
 
                 }
                 else {
@@ -51,7 +50,7 @@ exports.signin = (req, res, next) => {
         .catch( error => {
                 res.status(400).send({
                     message: "Error",
-                    error: error
+                    error: error.data
                 })
             })
 }
