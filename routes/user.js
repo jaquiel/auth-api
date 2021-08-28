@@ -6,6 +6,7 @@ routes.get('/', userController.get)
 routes.get('/:userId', userController.getByUserId)
 routes.post('/', userController.post)
 routes.put('/:userId', userController.put)
+routes.patch('/', userController.patch)
 //routes.delete('/', userController.delete)
 
 module.exports = routes

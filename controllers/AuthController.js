@@ -37,12 +37,13 @@ exports.signin = (req, res, next) => {
                 }
                 else {
                         res.status(401).send({
-                            message : "Password does not matched"
+                            message : "Password does not matched",
+                            auth: false,
                         })
                     }
 
             } else {                
-                res.status(404).send({
+                res.status(400).send({
                     message: "User not found"
                 })
             }

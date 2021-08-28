@@ -83,10 +83,22 @@ exports.post = (req, res, next) => {
             })
         })
         .catch( error => { 
-            res.status(400).send({
-                message : "Error: ",
-                data : error
-            })
+            const { code } = error
+
+            switch (code){
+
+                case 11000:
+                    res.status(409).send({
+                        message : "User already registered.",
+                        //data : error.KeyValue.email,
+                    })                 
+                    break;
+                default:            
+                    res.status(400).send({
+                        message : `Error: ${error}`,
+                        data : error
+                    })
+            } 
         })
 }
 
@@ -116,4 +128,10 @@ exports.put = (req, res, next) => {
             })
         })
 
+}
+
+exports.patch = (req, res, next) => {
+    res.status(501).send({
+        message : "Not Implemented.",
+    })    
 }
