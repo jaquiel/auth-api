@@ -1,9 +1,16 @@
-exports.config = {
-    /*"ConnectionString":"mongodb+srv://user:user@api-4zu1c.mongodb.net/backend?retryWrites=true&w=majority",*/
-    "ConnectionString":"mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false",    
-}
+require('dotenv').config({ path: './config/.env' })
 
-exports.Salt = {
-    "Key":"0a632dd5db81ece3ba9eaf3a52886027", //just4testing
-    "Rounds": 8
+exports.config = {
+
+    "APP": {
+        "HOST" : process.env.APP_HOST,
+        "PORT" : process.env.APP_PORT
+    },
+    "DB": {
+        "ConnectionString": process.env.DB_CONNECTIONSTRING,    
+    },
+    "Salt": {
+        "Key": process.env.SALT_SECRETKEY, // "0a632dd5db81ece3ba9eaf3a52886027" = "just4testing"
+        "Rounds": process.env.SALT_ROUNDS, // 8,
+    }
 }

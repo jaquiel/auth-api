@@ -7,5 +7,6 @@ const userController = require('../controllers/UserController')
 routes.post('/signup', userController.post)
 routes.post('/signin', authController.signin)
 routes.post('/signout', authController.signout)
+routes.post('/changePassword', authController.changePassword)
 
 module.exports = routes

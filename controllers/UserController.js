@@ -1,4 +1,5 @@
 const User = require('../models/User')
+const authMiddleware = require('../middlewares/auth')
 
 exports.get = (req, res, next) => {
 
@@ -72,7 +73,7 @@ exports.post = (req, res, next) => {
     user.lastname = lastname
     user.email = email
     user.password = password
-    //user.password = authMiddleware.encryptPassword(password)
+    user.password = authMiddleware.encryptPassword(password)
 
     user
         .save()

@@ -1,9 +1,10 @@
 /**
  * Server initialization
  */
+const { config } = require('./config/index')
 const app = require('./app')
 
-app.listen( 8080, () => {
-    console.log('Server running on port 8080')
+app.listen( config.APP.PORT, () => {
+    console.log(`Server running on ${config.APP.HOST}:${config.APP.PORT}`)
 })
 

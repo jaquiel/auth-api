@@ -6,7 +6,7 @@ const { config } = require('./index')
 // by default, you need to set it to false.
 mongoose.set('useFindAndModify', false);
 
-const mongoUri = config.ConnectionString
+const mongoUri = config.DB.ConnectionString
 
 const InitiateMongoServer = async () => {
     try {

@@ -37,4 +37,4 @@ app.use('/users', userRoute)
 
 app.use('/auth', authRoute)
 
-module.exports = app
+module.exports = app 

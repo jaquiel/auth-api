@@ -1,14 +1,10 @@
 const User = require('../models/User')
-const { isPasswordsMatched, generateToken } = require('../middlewares/auth')
+const { isPasswordsMatched, generateToken, encryptPassword } = require('../middlewares/auth')
 //const { CreateSession } = require('../middlewares/session')
 
-exports.get = (req, res, next) => {
-    res.send("GET 200 OK Auth")
+exports.signup = (req, res, next) => {
+    userController.post(req, res, next)
 }
-
-// exports.signup = (req, res, next) => {
-//     userController.post(req, res, next)
-// }
 
 /**
  * 
@@ -62,4 +58,33 @@ exports.signout = (req, res, next) => {
         auth: false,
         token: null
     }) 
+}
+
+exports.changePassword = (req, res, next) => {
+    
+    const { email, password, newPassword } = req.body
+    const newPass = encryptPassword(newPassword)
+
+    User
+        .findOneAndUpdate({ email : email },
+                          {$set:{ password: newPass } })
+        .then( data => {
+            if (data != null) { 
+                res.status(200).send({
+                    message: "Password changed",
+                    data: {
+                        email:email,
+                        password:password,
+                        newPassword:newPassword,
+                        dt: data
+                    }
+                })                
+            }
+        })
+        .catch( error => {
+                res.status(400).send({
+                    message: "Error",
+                    error: error.data
+                })
+            })   
 }
