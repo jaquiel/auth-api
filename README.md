@@ -4,9 +4,9 @@ Consists in template to develop a Backend Web API that provides users authentica
 
 ## Running ...
 
-To run the app, fisrt of all to clone this repo and to follow the steps below.
+To run the app, first of all clone this repo and to follow the steps below.
 
-To build and to install the dependencies, execute
+To build and to install the dependencies, execute:
 ```
 yarn 
 ```
