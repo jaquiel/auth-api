@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  db:
+    container_name: mongodb_container
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+  app:
+    container_name: ipca-scc-work
+    build: 
+      context: .
+    ports:
+      - "13000:13000"
+    depends_on:
+      - db
