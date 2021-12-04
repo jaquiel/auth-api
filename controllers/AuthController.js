@@ -1,4 +1,4 @@
-const User = require('../models/User')
+const User = require('../models/user')
 const { isPasswordsMatched, generateToken, encryptPassword } = require('../middlewares/auth')
 //const { CreateSession } = require('../middlewares/session')
 
