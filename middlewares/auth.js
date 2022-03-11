@@ -7,7 +7,7 @@ exports.isPasswordsMatched = (pwd, pwdStored) => {
 }
 
 exports.encryptPassword = (pwd) => {
-    return bcrypt.hashSync(pwd, config.Salt.Rounds) 
+    return bcrypt.hashSync(pwd, parseInt(config.Salt.Rounds)) 
 }
 
 exports.generateToken = (data) => {
