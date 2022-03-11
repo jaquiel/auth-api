@@ -1,13 +1,13 @@
-version: '3.9'
+version: '3.3'
 services:
   db:
-    container_name: mongodb_container
+    container_name: mongodb-container
     image: mongo
     restart: always
     ports:
       - "27017:27017"
   app:
-    container_name: ipca-scc-work
+    container_name: auth-api-container
     build: 
       context: .
     ports:
