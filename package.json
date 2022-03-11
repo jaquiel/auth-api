@@ -14,14 +14,18 @@
     "email": "jaquiel.paim@gmail.com",
     "url": "https://jaquiel.github.io/"
   },
+  "scripts": {
+    "dev": "node server.js",
+    "start": "npm run dev"
+  },
   "dependencies": {
     "bcrypt": "^5.0.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.26"
+    "mongoose": "^6.2.5"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.15"
   }
 }

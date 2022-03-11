@@ -110,4 +110,3 @@ dist
 
 # NPM or Yarn package lock files
 .lock
-*-lock.json
